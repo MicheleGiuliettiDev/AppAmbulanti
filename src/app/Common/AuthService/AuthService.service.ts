@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/core/model/User';
 import * as moment from 'moment';
-import { tap } from 'rxjs/operators'
+import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ constructor(private _http: HttpClient) { }
 
   login(username: string, password: string) {
     // tslint:disable-next-line: max-line-length
-    //return this._http.post<User>('/', {username, password}).pipe(tap(res = > this.setSession)).shareReplay();  // shareReplay() SERVE PER EVITARE CHE IL SUBSCRIBER RICEVA RICHIESTE POST MULTIPLE IN CASO DI ATTIVAZIONE ACCIDENTALE 
+    //return this._http.post<User>('/', {username, password}).pipe(map(res = > this.setSession(res))).shareReplay();  // shareReplay() SERVE PER EVITARE CHE IL SUBSCRIBER RICEVA RICHIESTE POST MULTIPLE IN CASO DI ATTIVAZIONE ACCIDENTALE 
   }
 
   private setSession(authResult) {
