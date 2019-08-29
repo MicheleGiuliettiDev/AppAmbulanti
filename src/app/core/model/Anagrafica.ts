@@ -7,5 +7,4 @@ export class Anagrafica implements IAnagrafica {
     denominazione: string;
     email: string;
     telefono?: string;
-
 }
